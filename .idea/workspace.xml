@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6e7364a1-9c5b-46a5-ab2e-c6825e3fec8b" name="Default Changelist" comment="" />
+    <list default="true" id="6e7364a1-9c5b-46a5-ab2e-c6825e3fec8b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,10 +24,14 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
   </component>
   <component name="ProjectId" id="1YLBAmXhEn19mB0i2Lpq5JPtSlX" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -29,6 +39,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
@@ -181,22 +192,26 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="765" y="221" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1587969599688" />
-    <state width="1877" height="414" key="GridCell.Tab.0.bottom" timestamp="1587988893241">
+    <state x="598" y="110" key="CommitChangelistDialog2" timestamp="1587989192056">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="414" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1587988893241" />
-    <state width="1877" height="414" key="GridCell.Tab.0.center" timestamp="1587988893241">
+    <state x="598" y="110" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1587989192055" />
+    <state width="1877" height="243" key="GridCell.Tab.0.bottom" timestamp="1587989113066">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="414" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1587988893241" />
-    <state width="1877" height="414" key="GridCell.Tab.0.left" timestamp="1587988893241">
+    <state width="1877" height="243" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1587989113066" />
+    <state width="1877" height="243" key="GridCell.Tab.0.center" timestamp="1587989113066">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="414" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1587988893241" />
-    <state width="1877" height="414" key="GridCell.Tab.0.right" timestamp="1587988893241">
+    <state width="1877" height="243" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1587989113066" />
+    <state width="1877" height="243" key="GridCell.Tab.0.left" timestamp="1587989113066">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="414" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1587988893241" />
+    <state width="1877" height="243" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1587989113066" />
+    <state width="1877" height="243" key="GridCell.Tab.0.right" timestamp="1587989113066">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="243" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1587989113066" />
     <state width="1877" height="302" key="GridCell.Tab.1.bottom" timestamp="1587987005748">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
