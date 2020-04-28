@@ -10,6 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * 查询 topic message 总量
+ */
 public class MessageSize {
 
     public static void main(String[] args) {

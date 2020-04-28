@@ -2,11 +2,12 @@ package cn.lgwen.kafka.tool;
 
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
-import org.apache.kafka.clients.consumer.*;
+import org.apache.kafka.clients.consumer.ConsumerConfig;
+import org.apache.kafka.clients.consumer.ConsumerRecord;
+import org.apache.kafka.clients.consumer.ConsumerRecords;
+import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.common.PartitionInfo;
 import org.apache.kafka.common.TopicPartition;
-import org.apache.zookeeper.data.Id;
-import scala.sys.Prop;
 
 import java.util.*;
 
@@ -14,8 +15,9 @@ import java.util.*;
  * 2020/4/28
  * aven.wu
  * danxieai258@163.com
+ * 查询落后多少 lat
  */
-public class GroupOffsetFetch {
+public class GroupOffsetLag {
 
 
     public static void search(String topic, String groupId, String zkHost) {

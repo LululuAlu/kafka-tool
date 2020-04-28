@@ -17,6 +17,7 @@ import java.util.*;
  * 2020/4/27
  * aven.wu
  * danxieai258@163.com
+ * 获取最新的消息
  */
 public class ReceiveLatestMessage {
 
