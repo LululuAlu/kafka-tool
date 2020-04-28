@@ -78,17 +78,6 @@ public class ReceiveLatestMessage {
     }
 
     public static void main(String[] args) throws Exception {
-//        Map<String, Object> kafkaParams = new HashMap<String, Object>();
-//        kafkaParams.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "cdh01:9092,cdh02:9092,cdh03:9092");
-//        kafkaParams.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, "org.apache.kafka.common.serialization.StringDeserializer");
-//        kafkaParams.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, "org.apache.kafka.common.serialization.StringDeserializer");
-//        kafkaParams.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "latest");
-//        kafkaParams.put(ConsumerConfig.GROUP_ID_CONFIG, "my-consumer");
-//        kafkaParams.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, false);
-//        kafkaParams.put(ConsumerConfig.MAX_POLL_RECORDS_CONFIG, 10);
-//        kafkaParams.put(ConsumerConfig.MAX_POLL_INTERVAL_MS_CONFIG, 500);
-//        kafkaParams.put(ConsumerConfig.AUTO_COMMIT_INTERVAL_MS_CONFIG, "1000");
-//        kafkaParams.put(ConsumerConfig.SESSION_TIMEOUT_MS_CONFIG, "10000");
 
         Command properties = new Command();
         JCommander jCommander = JCommander.newBuilder().addObject(properties).build();
