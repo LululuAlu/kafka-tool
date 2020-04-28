@@ -12,7 +12,7 @@ public class MyConsumer {
     @Test
     public void test() {
         KafkaConnector connector = new KafkaConnector("10.20.128.210:12181");
-        connector.consumer("collect.ga.tsgz.asset.website", "nova0", x -> {
+        connector.consumer("nova.ana.vul.state", "nova0", x -> {
             System.out.println(x);
         });
     }

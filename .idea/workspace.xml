@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6e7364a1-9c5b-46a5-ab2e-c6825e3fec8b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/lgwen/kafka/tool/GroupOffsetFetch.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/wushujames/kafka/ConsumerGroupLag.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/wushujames/kafka/KafkaApiRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/wushujames/kafka/OffsetFetchException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/wushujames/kafka/TopicPartitionsOffsetInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/lgwen/kafka/tool/OffsetMonitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/lgwen/kafka/tool/OffsetMonitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/lgwen/kafka/tool/ReceiveLatestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/lgwen/kafka/tool/ReceiveLatestMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/lgwen/kafka/tool/GroupOffsetFetch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/lgwen/kafka/tool/GroupOffsetFetch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/cn/lgwen/kafka/tool/MyConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/cn/lgwen/kafka/tool/MyConsumer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +70,7 @@
       <command value="mvn clean package -Dmaven.test.skip=true" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.ConsumerGroupLag">
+  <component name="RunManager" selected="Application.GroupOffsetFetch">
     <configuration name="ConsumerGroupLag" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.wushujames.kafka.ConsumerGroupLag" />
       <module name="kafka-tool" />
@@ -94,7 +88,7 @@
     <configuration name="GroupOffsetFetch" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="cn.lgwen.kafka.tool.GroupOffsetFetch" />
       <module name="kafka-tool" />
-      <option name="PROGRAM_PARAMETERS" value="--zk 10.20.128.210:12181 --group arc6 --topic nova.ana.vul.state" />
+      <option name="PROGRAM_PARAMETERS" value="--zk 10.20.128.210:12181 --group nova7 --topic collect.s.ntp.alarm" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="cn.lgwen.kafka.tool.*" />
@@ -131,34 +125,36 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OffsetMonitor" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="cn.lgwen.kafka.tool.OffsetMonitor" />
+    <configuration name="MyConsumer.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="kafka-tool" />
-      <option name="PROGRAM_PARAMETERS" value="--topic nova.dws.alarm --zk 10.20.128.210:12181 --group nova7" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="cn.lgwen.kafka.tool.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="cn.lgwen.kafka.tool" />
+      <option name="MAIN_CLASS_NAME" value="cn.lgwen.kafka.tool.MyConsumer" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.OffsetMonitor" />
       <item itemvalue="Application.GroupOffsetFetch" />
       <item itemvalue="Application.KafkaOffsetTools" />
       <item itemvalue="Application.KafkaConsumerMonitor" />
       <item itemvalue="Application.ConsumerGroupLag" />
+      <item itemvalue="JUnit.MyConsumer.test" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.GroupOffsetFetch" />
+        <item itemvalue="JUnit.MyConsumer.test" />
         <item itemvalue="Application.ConsumerGroupLag" />
         <item itemvalue="Application.KafkaConsumerMonitor" />
-        <item itemvalue="Application.GroupOffsetFetch" />
         <item itemvalue="Application.KafkaOffsetTools" />
-        <item itemvalue="Application.OffsetMonitor" />
       </list>
     </recent_temporary>
   </component>
@@ -185,17 +181,29 @@
       <option name="presentableId" value="Default" />
       <updated>1582711852930</updated>
     </task>
+    <task id="LOCAL-00001" summary="放弃">
+      <created>1588063215157</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1588063215157</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="放弃" />
+    <option name="LAST_COMMIT_MESSAGE" value="放弃" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="179" key="#Project_Structure" timestamp="1588062992789">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="179" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1588062992789" />
-    <state x="381" y="181" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588063185676">
+    <state x="381" y="181" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588067145816">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="381" y="181" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588063185676" />
+    <state x="381" y="181" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588067145816" />
     <state x="765" y="221" key="#com.intellij.ide.util.MemberChooser" timestamp="1587969599688">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -204,46 +212,50 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="715" y="223" key="#xdebugger.evaluate/0.0.1920.1040@0.0.1920.1040" timestamp="1588059818316" />
-    <state x="598" y="110" key="CommitChangelistDialog2" timestamp="1587989192056">
+    <state x="598" y="110" key="CommitChangelistDialog2" timestamp="1588063213768">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="598" y="110" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1587989192055" />
+    <state x="598" y="110" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1588063213768" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1588062176151">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1588062176151" />
-    <state width="1877" height="329" key="GridCell.Tab.0.bottom" timestamp="1588063189337">
+    <state width="1877" height="311" key="GridCell.Tab.0.bottom" timestamp="1588067400253">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="329" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1588063189337" />
-    <state width="1877" height="329" key="GridCell.Tab.0.center" timestamp="1588063189337">
+    <state width="1877" height="311" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1588067400253" />
+    <state width="1877" height="311" key="GridCell.Tab.0.center" timestamp="1588067400252">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="329" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1588063189337" />
-    <state width="1877" height="329" key="GridCell.Tab.0.left" timestamp="1588063189337">
+    <state width="1877" height="311" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1588067400252" />
+    <state width="1877" height="311" key="GridCell.Tab.0.left" timestamp="1588067400252">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="329" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1588063189337" />
-    <state width="1877" height="329" key="GridCell.Tab.0.right" timestamp="1588063189337">
+    <state width="1877" height="311" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1588067400252" />
+    <state width="1877" height="311" key="GridCell.Tab.0.right" timestamp="1588067400252">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="329" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588063189337" />
-    <state width="1877" height="329" key="GridCell.Tab.1.bottom" timestamp="1588063189337">
+    <state width="1877" height="311" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588067400252" />
+    <state width="1877" height="339" key="GridCell.Tab.1.bottom" timestamp="1588067249233">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="329" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1588063189337" />
-    <state width="1877" height="329" key="GridCell.Tab.1.center" timestamp="1588063189337">
+    <state width="1877" height="339" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1588067249233" />
+    <state width="1877" height="339" key="GridCell.Tab.1.center" timestamp="1588067249232">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="329" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1588063189337" />
-    <state width="1877" height="329" key="GridCell.Tab.1.left" timestamp="1588063189337">
+    <state width="1877" height="339" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1588067249232" />
+    <state width="1877" height="339" key="GridCell.Tab.1.left" timestamp="1588067249232">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="329" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1588063189337" />
-    <state width="1877" height="329" key="GridCell.Tab.1.right" timestamp="1588063189337">
+    <state width="1877" height="339" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1588067249232" />
+    <state width="1877" height="339" key="GridCell.Tab.1.right" timestamp="1588067249232">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="329" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588063189337" />
+    <state width="1877" height="339" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588067249232" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1588063219348">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1588063219348" />
     <state x="752" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1588053293028">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -272,6 +284,11 @@
           <url>jar://$MAVEN_REPOSITORY$/org/apache/kafka/kafka-clients/0.11.0.2/kafka-clients-0.11.0.2-sources.jar!/org/apache/kafka/clients/consumer/KafkaConsumer.java</url>
           <line>1346</line>
           <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/cn/lgwen/kafka/tool/KafkaConnector.java</url>
+          <line>81</line>
+          <option name="timeStamp" value="14" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

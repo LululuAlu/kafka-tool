@@ -2,11 +2,11 @@ package cn.lgwen.kafka.tool;
 
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
-import org.apache.kafka.clients.consumer.ConsumerConfig;
-import org.apache.kafka.clients.consumer.KafkaConsumer;
-import org.apache.kafka.clients.consumer.OffsetAndMetadata;
+import org.apache.kafka.clients.consumer.*;
 import org.apache.kafka.common.PartitionInfo;
 import org.apache.kafka.common.TopicPartition;
+import org.apache.zookeeper.data.Id;
+import scala.sys.Prop;
 
 import java.util.*;
 
@@ -18,10 +18,8 @@ import java.util.*;
 public class GroupOffsetFetch {
 
 
-
     public static void search(String topic, String groupId, String zkHost) {
         Map<Integer, Long> endOffsetMap = new HashMap<>();
-        Map<Integer, Long> commitOffsetMap = new HashMap<>();
 
         Properties consumeProps = new KafkaConnector(zkHost).getConsumerProperties();
         consumeProps.setProperty(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, "false");
@@ -39,30 +37,37 @@ public class GroupOffsetFetch {
         for (TopicPartition partitionInfo : endOffsets.keySet()) {
             endOffsetMap.put(partitionInfo.partition(), endOffsets.get(partitionInfo));
         }
-        for (Integer partitionId : endOffsetMap.keySet()) {
-            System.out.println(String.format("at %s, topic:%s, partition:%s, logSize:%s", System.currentTimeMillis(), topic, partitionId, endOffsetMap.get(partitionId)));
-        }
+        // 使用groupId 去拉取数据
+        KafkaConnector kafkaConnector = new KafkaConnector(zkHost);
+        Properties properties = kafkaConnector.getConsumerProperties();
+        properties.setProperty(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, "false");
+        properties.setProperty(ConsumerConfig.GROUP_ID_CONFIG, groupId);
+        properties.setProperty(ConsumerConfig.MAX_POLL_RECORDS_CONFIG, "2");
 
-        //查询消费offset
-        for (TopicPartition topicAndPartition : topicPartitions) {
-            OffsetAndMetadata committed = consumer.committed(topicAndPartition);
-            commitOffsetMap.put(topicAndPartition.partition(), committed.offset());
-        }
-        //累加lag
-        long lagSum = 0L;
-        if (endOffsetMap.size() == commitOffsetMap.size()) {
-            for (Integer partition : endOffsetMap.keySet()) {
-                long endOffSet = endOffsetMap.get(partition);
-                long commitOffSet = commitOffsetMap.get(partition);
-                long diffOffset = endOffSet - commitOffSet;
-                lagSum += diffOffset;
-                System.out.println("Topic:" + topic + ", groupID:" + groupId + ", partition:" + partition + ", endOffset:" + endOffSet + ", commitOffset:" + commitOffSet + ", diffOffset:" + diffOffset);
+        Map<Integer, Long> offsetMap = new HashMap<>();
+        for (TopicPartition topicPartition : topicPartitions) {
+            KafkaConsumer<String, String> partitionConsumer = new KafkaConsumer<>(properties);
+            //partitionConsumer.subscribe(Collections.singleton("nova.ana.vul.state"));
+            partitionConsumer.assign(Collections.singleton(topicPartition));
+            System.out.print("pool data waite 1s");
+            ConsumerRecords<String, String> records = partitionConsumer.poll(1000);
+            offsetMap.put(topicPartition.partition(), 0L);
+            for (ConsumerRecord<String, String> record : records) {
+                // 拉不到数据 就表示不落后
+                Long offset = record.offset();
+                offsetMap.put(topicPartition.partition(), offset);
+                break;
             }
-            System.out.println("Topic:" + topic + ", groupID:" + groupId + ", LAG:" + lagSum);
-        } else {
-            System.out.println("this topic partitions lost");
         }
-
+        long lag = 0L;
+        for (int partitionId : offsetMap.keySet()) {
+            lag = lag + endOffsetMap.get(partitionId) - offsetMap.get(partitionId);
+            if (offsetMap.get(partitionId) == 0) {
+                System.out.println("no message consumer lag:0");
+            }
+            System.out.println(String.format("topic:%s, partition:%d, logSize:%d, groupOffset:%d, lag:%d", topic, partitionId, endOffsetMap.get(partitionId), offsetMap.get(partitionId), endOffsetMap.get(partitionId) - offsetMap.get(partitionId)));
+        }
+        System.out.println("total lag:" + lag);
         consumer.close();
     }
 
@@ -70,7 +75,7 @@ public class GroupOffsetFetch {
         Command properties = new Command();
         JCommander jCommander = JCommander.newBuilder().addObject(properties).build();
         jCommander.parse(args);
-        search(properties.topic, properties.groupId,properties.zk);
+        search(properties.topic, properties.groupId, properties.zk);
     }
 
     public static class Command {
