@@ -36,6 +36,25 @@ public class KafkaConnector {
         return produceProperties;
     }
 
+
+    public KafkaConnector(String... brokers) {
+        consumerProperties = new Properties();
+        consumerProperties.setProperty("max.partition.fetch.bytes", "10485760");
+        consumerProperties.setProperty("max.poll.records", "50000");
+        consumerProperties.setProperty("auto.offset.reset", "earliest");
+        consumerProperties.setProperty("bootstrap.servers", brokers[0]);
+        consumerProperties.setProperty("key.deserializer", StringDeserializer.class.getName());
+        consumerProperties.setProperty("value.deserializer",  StringDeserializer.class.getName());
+
+        produceProperties = new Properties();
+        produceProperties.setProperty("bootstrap.servers", brokers[0]);
+        //produceProperties.setProperty("max.request.size", "102400");
+        produceProperties.setProperty("controlled.shutdown.max.retries", "2");
+        produceProperties.setProperty("controlled.shutdown.retry.backoff.ms", "500");
+        produceProperties.setProperty("key.serializer", StringSerializer.class.getName());
+        produceProperties.setProperty("value.serializer", StringSerializer.class.getName());
+    }
+
     public KafkaConnector(String zkHost) {
         try {
             ZooKeeper zk = new ZooKeeper(zkHost, 10000, null);

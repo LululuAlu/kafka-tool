@@ -62,8 +62,10 @@ public class MessageSize {
     public static class Command {
         @Parameter(names = {"--topic"}, required = true)
         public String topic;
-        @Parameter(names = {"--zk"}, required = true)
+        @Parameter(names = {"--zk"})
         public String zk;
+        @Parameter(names = {"--brokers"})
+        public String brokers;
     }
 
 

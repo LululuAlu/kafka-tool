@@ -22,8 +22,7 @@ import java.util.*;
 public class ReceiveLatestMessage {
 
 
-    public static void receiveLatestMessage(
-            Properties properties, String topic, Integer count) {
+    public static void receiveLatestMessage(Properties properties, String topic, Integer count) {
         final KafkaConsumer<String, String> consumer = new KafkaConsumer<>(properties);
         AdminClient adminClient = AdminClient.create(properties);
         try {
@@ -83,8 +82,12 @@ public class ReceiveLatestMessage {
         Command properties = new Command();
         JCommander jCommander = JCommander.newBuilder().addObject(properties).build();
         jCommander.parse(args);
-
-        KafkaConnector kafkaConnector = new KafkaConnector(properties.zk);
+        KafkaConnector kafkaConnector;
+        if (properties.brokers != null) {
+            kafkaConnector = new KafkaConnector(new String[]{properties.brokers});
+        } else {
+            kafkaConnector = new KafkaConnector(properties.zk);
+        }
         Properties consumerProperties = kafkaConnector.getConsumerProperties();
         consumerProperties.setProperty(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "latest");
         consumerProperties.setProperty(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, "false");
@@ -96,10 +99,13 @@ public class ReceiveLatestMessage {
     public static class Command {
         @Parameter(names = {"--topic"}, required = true)
         public String topic;
-        @Parameter(names = {"--zk"}, required = true)
+        @Parameter(names = {"--zk"})
         public String zk;
         @Parameter(names = {"--size"})
         public int size = 10;
+        @Parameter(names = {"--brokers"})
+        public String brokers;
     }
 
+    // --topic pbc --brokers localhost:9092
 }
