@@ -20,10 +20,14 @@ import java.util.*;
 public class GroupOffsetLag {
 
 
-    public static void search(String topic, String groupId, String zkHost) {
+    public static void search(String topic, String groupId, String zkHost, String broker) {
         Map<Integer, Long> endOffsetMap = new HashMap<>();
-
-        Properties consumeProps = new KafkaConnector(zkHost).getConsumerProperties();
+        Properties consumeProps;
+        if (broker != null) {
+            consumeProps = new KafkaConnector(new String[]{broker}).getConsumerProperties();
+        } else {
+            consumeProps = new KafkaConnector(zkHost).getConsumerProperties();
+        }
         consumeProps.setProperty(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, "false");
         //查询topic partitions
         KafkaConsumer<String, String> consumer = new KafkaConsumer<>(consumeProps);
@@ -63,9 +67,10 @@ public class GroupOffsetLag {
         }
         long lag = 0L;
         for (int partitionId : offsetMap.keySet()) {
-            lag = lag + endOffsetMap.get(partitionId) - offsetMap.get(partitionId);
             if (offsetMap.get(partitionId) == 0) {
                 System.out.println("no message consumer lag:0");
+            } else {
+                lag = lag + endOffsetMap.get(partitionId) - offsetMap.get(partitionId);
             }
             System.out.println(String.format("topic:%s, partition:%d, logSize:%d, groupOffset:%d, lag:%d", topic, partitionId, endOffsetMap.get(partitionId), offsetMap.get(partitionId), endOffsetMap.get(partitionId) - offsetMap.get(partitionId)));
         }
@@ -77,7 +82,7 @@ public class GroupOffsetLag {
         Command properties = new Command();
         JCommander jCommander = JCommander.newBuilder().addObject(properties).build();
         jCommander.parse(args);
-        search(properties.topic, properties.groupId, properties.zk);
+        search(properties.topic, properties.groupId, properties.zk, properties.broker);
     }
 
     public static class Command {
@@ -87,5 +92,7 @@ public class GroupOffsetLag {
         public String topic;
         @Parameter(names = {"--zk"}, required = true)
         public String zk;
+        @Parameter(names = {"--brokers"}, required = true)
+        public String broker;
     }
 }

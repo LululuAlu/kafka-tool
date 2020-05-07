@@ -7,6 +7,6 @@ package cn.lgwen.kafka.tool;
  */
 public class Test {
     public static void main(String[] args) {
-
+        throw new NullPointerException("1");
     }
 }
